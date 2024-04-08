@@ -2,6 +2,10 @@
 // Apples for pears - Scaling for divsor
 // MattMcP@blackboxmint.com
 
+// Example uses a scaler to aid division.
+// Example: A * (next power 10 up from B) / B.
+// The method is usefull for handling the native price from two reserves.
+
 pragma solidity ^0.8.25;
 
 contract ApplesForPears{
