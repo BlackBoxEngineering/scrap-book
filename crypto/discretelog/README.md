@@ -1,18 +1,23 @@
 # Discrete Logarithm
 
-A simple example to demonstrate the discrete log problem.
+A set of examples demonstrating the discrete log problem and cyclic groups.
 
 - `oneway.js` — computes `g^x mod p` (the easy direction), with step-by-step logging of the squaring algorithm
 - `bruteforce.js` — given the output, brute-forces `x` back (the hard direction)
+- `cyclicgroup.js` — simple g over G cycle example, shows which bases are generators
 
 ## Usage
 
 ```bash
-# First compute g^x mod p for a secret exponent.
-# This outputs the value for f(x) = g^x mod p
+# Forward: compute g^x mod p for a secret exponent
 node oneway.js 1234
 
-# Call bruteforce using the value for f(x) = g^x mod p
-# For example if x is 1234 then f(x) is 69158
-node bruteforce.js 69158
+# Reverse: given the result, find x by brute force
+node bruteforce.js <output_from_oneway>
+
+# Explore cyclic group: see the cycle for a specific base
+node cyclicgroup.js 11 2
+
+# Explore all bases mod p to find generators
+node cyclicgroup.js 11 0
 ```
