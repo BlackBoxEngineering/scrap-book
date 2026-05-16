@@ -1,3 +1,2 @@
-# Scrap book
-
-a-box-of-frogs, contains random snippets that have been mostly created as examples
+# Scrap Book
+A general box of frogs: Notes, snippets and examples.
