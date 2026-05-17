@@ -2,7 +2,7 @@
 // MattMcP@2024-06-01
 
 // I am going to demonstrate f(x) = g^x mod p, [f(x)=g**x % p]
-// Where G is the generator, P is the Prime, and x is the secret exponent.
+// Where g is the generator, P is the Prime, and x is the secret exponent.
 
 const arg = process.argv[2];
 if (!arg) {process.exit(1);}
