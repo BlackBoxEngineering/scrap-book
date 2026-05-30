@@ -13,7 +13,20 @@ if (!arg1 || !arg2) {
 }
 
 const prime = BigInt(arg1);
-const base = BigInt(arg2);
+const base = BigInt(arg2); // The base is the generator
+
+function isPrime(n) {
+    if (n < 2n) return false;
+    for (let i = 2n; i * i <= n; i++) {
+        if (n % i === 0n) return false;
+    }
+    return true;
+}
+
+if (!isPrime(prime)) {
+    console.log("Error: modulus must be a prime number.");
+    process.exit(1);
+}
 
 function cycleForBase(prime, base) {
     const seen = new Set();
@@ -70,6 +83,17 @@ if (base === 0n) {
         printCycle(prime, b, cycle);
         if (cycle.length === groupOrder) generators.push(b);
     }
+    // Cycle-length histogram
+    const histogram = {};
+    for (let b = 1n; b < prime; b++) {
+        const len = cycleForBase(prime, b).length;
+        histogram[len] = (histogram[len] || 0) + 1;
+    }
+    console.log(`\nCycle-length histogram:`);
+    for (const len of Object.keys(histogram).map(Number).sort((a, b) => a - b)) {
+        console.log(`  order ${len}: ${histogram[len]} element(s)`);
+    }
+
     console.log(`\nGenerators of the group: {${generators.join(', ')}}`);
     console.log(`${generators.length} generators out of ${groupOrder} elements`);
 } else {

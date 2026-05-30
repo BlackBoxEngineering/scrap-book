@@ -8,8 +8,10 @@
 // In a real cryptographic system, the prime would be hundreds of digits long,
 // making this brute-force search infeasible. Here, we use a small prime and a pretend generator.
 
-const prime = 104729n;
-const generator = 5n;
+//const prime = 115792089210356248762697446949407573530086143415290314195533631308867097853951n;
+const prime = 11n;
+//const prime = 104729n; 
+const generator = 2n;
 
 const arg = process.argv[2];
 if (!arg) {
